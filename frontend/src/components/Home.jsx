@@ -3,11 +3,15 @@ import TodoForm from './TodoForm'
 import Todos from './Todos'
 import axios from 'axios'
 
+
+
 const Home = () => {
+    const API_URL = process.env.REACT_APP_API_URL
+    console.log(`${API_URL}api`)
     const [todos, setTodos] = React.useState([])
     useEffect(() => {
         const getTodos = async () => {
-            const response = await axios.get('http://localhost:4000/api/')
+            const response = await axios.get(`${API_URL}api`)
             setTodos(response.data.data)
         }
         getTodos()

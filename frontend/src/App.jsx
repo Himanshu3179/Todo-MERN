@@ -9,6 +9,7 @@ const App = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="*" element={<p className='pt-20'>this url does not exists</p>} />
       </Routes>
     </div>
 

@@ -2,8 +2,10 @@ import axios from 'axios'
 import React, { useState } from 'react'
 
 const TodoForm = () => {
+    const API_URL = process.env.REACT_APP_API_URL
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
+
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -12,7 +14,7 @@ const TodoForm = () => {
                 alert("Please fill all the fields")
             )
         }
-        await axios.post("http://localhost:4000/api/", {
+        await axios.post(`${API_URL}api`, {
             title,
             description
         })
